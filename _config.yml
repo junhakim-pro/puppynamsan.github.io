@@ -1,0 +1,14 @@
+theme: jekyll-theme-minimal
+title: Seoul Culture Guide
+description: 진짜 서울을 경험하세요 - 30년 서울 거주자가 안내하는 깊이 있는 한국 문화 투어
+author: 
+  name: Your Name
+  email: your-email@example.com
+
+lang: ko-KR
+url: https://puppynamsan.github.io
+
+header_pages:
+  - about.md
+  - tours.md
+  - contact.md
