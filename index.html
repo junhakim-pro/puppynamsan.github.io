@@ -1,11 +1,144 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-    <title>Seoul Culture Guide</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seoul Culture Guide - 진짜 서울을 경험하세요</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .nav-links {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .nav-links a {
+            margin: 0 10px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .content-section {
+            margin: 40px 0;
+        }
+        
+        .content-section h2 {
+            color: #333;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .guide-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .guide-list li {
+            background: #f8f9fa;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .contact-section {
+            background: #f8f9fa;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .contact-button {
+            background: #667eea;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
 <body>
-    <h1>Seoul Culture Guide</h1>
-    <p>진짜 서울을 경험하세요</p>
-    <p>Test page - 작동하면 성공!</p>
+    <header>
+        <h1>Seoul Culture Guide</h1>
+        <p>진짜 서울을 경험하세요</p>
+    </header>
+
+    <div class="container">
+        <div class="nav-links">
+            <a href="#korean">한국어</a> | 
+            <a href="#english">English</a> | 
+            <a href="#chinese">中文</a>
+        </div>
+
+        <div class="content-section">
+            <h2>30년 서울 거주자가 안내하는 깊이 있는 한국 문화 투어</h2>
+            <p>단순한 관광이 아닌 진짜 한국 문화를 경험하고 싶은 30-50대 여행객을 위한 프라이빗 가이드 서비스입니다.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>최근 여행 가이드</h2>
+            <ul class="guide-list">
+                <li><strong>한국인처럼 먹는 법</strong> - 관광객은 절대 모르는 식당 에티켓과 현지인 맛집</li>
+                <li><strong>서울 지하철 완전정복</strong> - 러시아워 피하는 법부터 환승 꿀팁까지</li>
+                <li><strong>비즈니스 출장자 가이드</strong> - 한국 비즈니스 문화의 모든 것</li>
+                <li><strong>K-문화 성지순례</strong> - BTS부터 오징어게임까지 촬영지 완벽 가이드</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="contact-section">
+        <h2>프라이빗 투어 문의</h2>
+        <p>더 깊이 있는 서울 경험을 원하신다면 개인 맞춤 투어를 예약하세요</p>
+        <a href="mailto:guide@example.com" class="contact-button">투어 문의하기</a>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Seoul Culture Guide. Powered by GitHub Pages</p>
+    </footer>
 </body>
 </html>
