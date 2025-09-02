@@ -7,11 +7,11 @@ languages: ["ko", "en", "cn"]
 default_lang: "ko"
 
 # 네비게이션
-header_pages:
-  - about.md
-  - tours.md  
-  - contact.md
-  - en/about.md
-  - en/tours.md
-  - cn/about.md
-  - cn/tours.md
+# header_pages:
+#   - about.md
+#   - tours.md
+#   - contact.md
+#   - en/about.md
+#   - en/tours.md
+#   - cn/about.md
+#   - cn/tours.md
