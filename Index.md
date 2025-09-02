@@ -3,6 +3,8 @@ layout: default
 title: Seoul Culture Guide
 ---
 
+# Seoul Culture Guide
+
 [**한국어**] | [English](/en/) | [中文](/cn/)
 
 ## 진짜 서울을 경험하세요
