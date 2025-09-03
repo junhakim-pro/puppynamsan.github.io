@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>首尔文化导游 - 体验真正的首尔</title>
     <style>
-        /* 동일한 CSS 스타일 */
         * {
             margin: 0;
             padding: 0;
@@ -18,7 +17,89 @@
             color: #333;
         }
         
-        /* ... (나머지 CSS는 동일) */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .nav-links {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .nav-links a {
+            margin: 0 10px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .content-section {
+            margin: 40px 0;
+        }
+        
+        .content-section h2 {
+            color: #333;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .guide-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .guide-list li {
+            background: #f8f9fa;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .contact-section {
+            background: #f8f9fa;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .contact-button {
+            background: #667eea;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
@@ -29,8 +110,7 @@
 
     <div class="container">
         <div class="nav-links">
-            <a href="/">한국어</a> | 
-            <a href="/en/">English</a> | 
+            <a href="/">English</a> | 
             <a href="/cn/"><strong>中文</strong></a>
         </div>
 
@@ -38,8 +118,26 @@
             <h2>30年首尔居住者指导的正宗韩国文化之旅</h2>
             <p>为想要体验真正韩国文化而非典型旅游的30-50岁旅客提供的私人导游服务。</p>
         </div>
-        
-        <!-- 중국어 콘텐츠 계속... -->
+
+        <div class="content-section">
+            <h2>最新旅行指南</h2>
+            <ul class="guide-list">
+                <li><strong>像韩国人一样吃饭</strong> - 游客绝对不知道的餐厅礼仪和当地美食秘诀</li>
+                <li><strong>首尔地铁完全攻略</strong> - 从避开高峰时段到换乘小贴士</li>
+                <li><strong>商务出差者首尔指南</strong> - 韩国商务文化的方方面面</li>
+                <li><strong>K文化圣地朝圣</strong> - 从BTS到鱿鱼游戏的拍摄地完美指南</li>
+            </ul>
+        </div>
     </div>
+
+    <div class="contact-section">
+        <h2>私人导游咨询</h2>
+        <p>如需更深度的首尔体验，请预约个人定制导游服务</p>
+        <a href="mailto:guide@example.com" class="contact-button">咨询导游服务</a>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Seoul Culture Guide. Powered by GitHub Pages</p>
+    </footer>
 </body>
 </html>
