@@ -1,240 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seoul Subway Mastery: A First-Timer's Guide 🚇</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #FDFBF8;
-            color: #4A4A4A;
-        }
-        .prose h2 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            color: #2D3748;
-        }
-        .prose p, .prose li {
-            font-size: 1rem;
-            line-height: 1.75;
-            color: #4A5568;
-        }
-        .prose a {
-            color: #DD6B20;
-            text-decoration: underline;
-        }
-        .icon-box {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 3rem;
-            height: 3rem;
-            border-radius: 0.75rem;
-            background-color: #FAE8E0;
-            color: #DD6B20;
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 350px;
-            max-height: 500px;
-        }
-    </style>
-</head>
-<body class="antialiased">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <header class="text-center mb-12">
-            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-2">Seoul Culture Guide</h1>
-            <p class="text-lg md:text-xl text-gray-600">Your Ultimate Guide to Navigating Seoul Like a Local</p>
-        </header>
+.chart-container {
+position: relative;
+width: 100%;
+max-width: 800px;
+margin-left: auto;
+margin-right: auto;
+height: 350px;
+max-height: 500px;
+}
 
-        <main class="max-w-4xl mx-auto prose lg:prose-xl">
-            <div class="mb-8">
-                <a href="/" class="text-orange-500 hover:text-orange-700 font-medium">
-                    ← Back to Home
-                </a>
-            </div>
-
-            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Beyond the Lines: An Ultimate Guide to Conquering the Seoul Subway</h1>
-            <p class="text-gray-500 text-sm mb-12">Published: September 2025</p>
-            
-            <p>Welcome to Seoul! You've just landed in a vibrant, sprawling metropolis with so much to explore. Whether you're here for business or pleasure, the Seoul Metropolitan Subway is your key to unlocking the city. It’s clean, efficient, and extensive, but its size can be intimidating for first-timers. This guide will turn you into a confident subway rider in no time.</p>
-            
-            <hr class="my-8">
-
-            <section id="getting-started">
-                <div class="flex items-start space-x-4 mb-4">
-                    <div class="icon-box">1</div>
-                    <h2>Getting Started: From Airport to City Center</h2>
-                </div>
-                <p>Your journey begins at Incheon International Airport (ICN). You have two great train options to get into Seoul:</p>
-                <ul>
-                    <li><strong>AREX Express Train:</strong> The fastest way. It runs non-stop from Incheon to Seoul Station in about 45 minutes. Perfect if you're staying near the city center.</li>
-                    <li><strong>AREX All-Stop Train:</strong> A bit slower (about 60 minutes) as it makes several stops, but it connects directly to other subway lines, which might be more convenient depending on your destination.</li>
-                </ul>
-                
-                <div class="p-4 bg-orange-50 border border-orange-200 rounded-lg mt-6">
-                    <h3 class="font-bold text-orange-800">Must-Do: Get a T-money Card</h3>
-                    <p class="text-orange-700">Before you even get on the train, buy a <strong>T-money card</strong>. This is your rechargeable transportation card. You can buy and top it up at any convenience store (like 7-Eleven, GS25) or at the ticket vending machines inside every subway station. You simply tap the card on the reader when you enter and exit the gates. It's cheaper than single-use tickets and works on buses too!</p>
-                </div>
-            </section>
-            
-            <section id="navigation">
-                <div class="flex items-start space-x-4 mb-4 mt-8">
-                    <div class="icon-box">2</div>
-                    <h2>Navigation: Your Digital Compass</h2>
-                </div>
-                <p>The Seoul subway map looks like a colorful bowl of spaghetti, but don't worry! Technology is your best friend here. Download one of these essential apps:</p>
-                <ul>
-                    <li><strong>Naver Map (네이버 지도):</strong> The most popular and accurate map service in Korea. It provides real-time train tracking, tells you which car to board for the fastest transfer, and calculates the best route. It's available in English.</li>
-                    <li><strong>Kakao Maps (카카오맵):</strong> Another excellent choice with similar features to Naver Map.</li>
-                </ul>
-                <p>These apps will be your lifeline. Just enter your destination, and they'll handle the rest.</p>
-            </section>
-            
-            <section id="riding">
-                <div class="flex items-start space-x-4 mb-4 mt-8">
-                    <div class="icon-box">3</div>
-                    <h2>Riding the Subway: The Basics</h2>
-                </div>
-                <p>Navigating the stations is surprisingly easy. Everything is color-coded and signed in English.</p>
-                <ul>
-                    <li><strong>Follow the Colors and Numbers:</strong> Each line has a unique color and number (e.g., Line 2 is the green circle line). Signs on the walls and floors will guide you to your platform.</li>
-                    <li><strong>Check Your Direction:</strong> Before going down to the platform, check the signs that list the major stations in each direction. Your map app will tell you the name of the final station in your direction of travel (e.g., "Towards Gangnam").</li>
-                    <li><strong>Transfers are Easy:</strong> To transfer, just follow the "Transfer to Line X" signs. The apps will even tell you how long the walk will be. Tap out and tap back in only when the signs explicitly tell you to.</li>
-                </ul>
-            </section>
-
-            <section id="visualization">
-                <div class="flex items-start space-x-4 mb-4 mt-8">
-                    <div class="icon-box">4</div>
-                    <h2>The Scale of the System: A Quick Look</h2>
-                </div>
-                <p>To give you an idea of how massive and modern the Seoul subway is, take a look at its growth over the past few decades. Starting with just a few stations in the 1970s, it has exploded into one of the world's largest and most efficient networks. This chart shows the cumulative number of stations built, illustrating the rapid development that makes it so convenient today.</p>
-                
-                <div class="chart-container my-8">
-                    <canvas id="subwayGrowthChart"></canvas>
-                </div>
-            </section>
-            
-            <section id="pro-tips">
-                <div class="flex items-start space-x-4 mb-4 mt-8">
-                    <div class="icon-box">5</div>
-                    <h2>Pro Tips for a Smooth Ride</h2>
-                </div>
-                <ul>
-                    <li><strong>Use the free Wi-Fi:</strong> Most subway cars have free Wi-Fi available.</li>
-                    <li><strong>Mind the designated seating:</strong> There are seats reserved for the elderly, pregnant women, and disabled passengers at the ends of each car. Avoid using them unless you need to.</li>
-                    <li><strong>Stand clear of the doors:</strong> People will rush in and out, so it's best to stand to the side while waiting.</li>
-                    <li><strong>Stay quiet:</strong> It's considered polite to keep conversations low and avoid talking on the phone while on the train.</li>
-                    <li><strong>Pay attention to the last train:</strong> Service usually ends around midnight. Your app will tell you the last train time for your route.</li>
-                </ul>
-                <p>That's it! With your T-money card and a good map app, you're ready to conquer the Seoul subway. Enjoy the efficiency, the cleanliness, and the incredible access it gives you to this amazing city. Happy travels!</p>
-            </section>
-        </main>
-    </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const ctx = document.getElementById('subwayGrowthChart').getContext('2d');
-            
-            const subwayData = {
-                labels: ['1970s', '1980s', '1990s', '2000s', '2010s', '2020s'],
-                datasets: [{
-                    label: 'Cumulative Number of Stations',
-                    data: [9, 115, 201, 291, 563, 768],
-                    backgroundColor: 'rgba(221, 107, 32, 0.6)',
-                    borderColor: 'rgba(221, 107, 32, 1)',
-                    borderWidth: 1,
-                    hoverBackgroundColor: 'rgba(221, 107, 32, 0.8)',
-                }]
-            };
-
-            new Chart(ctx, {
-                type: 'bar',
-                data: subwayData,
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            display: false,
-                        },
-                        title: {
-                            display: true,
-                            text: 'Seoul Subway System Growth (Cumulative Stations)',
-                            font: {
-                                size: 16,
-                                family: 'Inter',
-                            },
-                            color: '#2D3748',
-                        },
-                        tooltip: {
-                            backgroundColor: '#2D3748',
-                            titleFont: {
-                                family: 'Inter',
-                                size: 14,
-                            },
-                            bodyFont: {
-                                family: 'Inter',
-                                size: 12,
-                            },
-                            callbacks: {
-                                label: function(context) {
-                                    return `${context.dataset.label}: ${context.raw}`;
-                                }
-                            }
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            title: {
-                                display: true,
-                                text: 'Number of Stations',
-                                font: {
-                                    family: 'Inter',
-                                },
-                                color: '#4A5568',
-                            },
-                            grid: {
-                                color: '#E2E8F0',
-                            },
-                            ticks: {
-                                color: '#4A5568',
-                            }
-                        },
-                        x: {
-                            title: {
-                                display: true,
-                                text: 'Decade',
-                                font: {
-                                    family: 'Inter',
-                                },
-                                color: '#4A5568',
-                            },
-                            grid: {
-                                display: false,
-                            },
-                            ticks: {
-                                color: '#4A5568',
-                            }
-                        }
-                    }
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+```
+    .scroll-to-top {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        width: 3.5rem;
+        height: 3.5rem;
+        background-color: #DD6B20;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 1.25rem;
+        font-weight: bold;
+        box-shadow: 0 4px 12px rgba(221, 107, 32, 0.4);
+        transition: all 0.3s ease;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+        z-index: 1000;
+    }
+    
+    .scroll-to-top.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    
+    .scroll-to-top:hover {
+        background-color: #C05621;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(221, 107, 32, 0.5);
+    }
+```
