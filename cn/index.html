@@ -1,10 +1,21 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>首尔文化导游 - 体验真正的首尔</title>
+    <title>首尔本地朋友的生活小贴士</title>
     <style>
+        :root {
+            --primary-color: #5A67D8; /* A slightly softer, more modern blue */
+            --secondary-color: #9F7AEA; /* A complementary purple */
+            --light-bg-color: #F7FAFC;
+            --card-bg-color: #FFFFFF;
+            --text-color: #2D3748;
+            --secondary-text-color: #718096;
+            --white-color: #fff;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -12,132 +23,228 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            /* 중국어 가독성을 위한 폰트 추가 */
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: var(--text-color);
+            background-color: var(--light-bg-color);
         }
         
-        .container {
+        main.container {
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
         }
-        
+
+        /* Header Styles */
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1547892186-24a014e69b0c?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            color: var(--white-color);
             text-align: center;
-            padding: 60px 20px;
+            padding: 80px 20px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
         }
         
         header h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
+            font-weight: 700;
             margin-bottom: 10px;
         }
         
         header p {
             font-size: 1.2rem;
             opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
         }
         
-        .nav-links {
+        /* Navigation Styles */
+        nav {
             text-align: center;
-            margin: 20px 0;
+            margin: 30px 0;
         }
         
-        .nav-links a {
-            margin: 0 10px;
-            color: #667eea;
+        nav a {
+            margin: 0 15px;
+            color: var(--primary-color);
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Content Section Styles */
+        section {
+            margin: 50px 0;
         }
         
-        .content-section {
-            margin: 40px 0;
+        section h2 {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--text-color);
+            margin-bottom: 30px;
         }
-        
-        .content-section h2 {
-            color: #333;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #667eea;
-            padding-bottom: 10px;
-        }
-        
-        .guide-list {
+
+        /* Tip Cards Section */
+        .tip-cards {
             list-style: none;
-            padding-left: 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
         }
         
-        .guide-list li {
-            background: #f8f9fa;
-            margin: 10px 0;
-            padding: 15px;
-            border-radius: 8px;
-            border-left: 4px solid #667eea;
+        .tip-card {
+            background: var(--card-bg-color);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px var(--shadow-color);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border-top: 5px solid;
+        }
+
+        .tip-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px var(--shadow-color);
+        }
+
+        .tip-card:nth-child(1) { border-color: #4299E1; }
+        .tip-card:nth-child(2) { border-color: #48BB78; }
+        .tip-card:nth-child(3) { border-color: #ED8936; }
+        .tip-card:nth-child(4) { border-color: #9F7AEA; }
+
+        .tip-card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            padding: 25px;
         }
         
+        .tip-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+        
+        .tip-card p {
+            font-size: 0.95rem;
+            color: var(--secondary-text-color);
+        }
+
+        /* Contact Section Styles */
         .contact-section {
-            background: #f8f9fa;
-            padding: 40px 20px;
+            background: var(--card-bg-color);
+            padding: 50px 20px;
             text-align: center;
             margin-top: 60px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px var(--shadow-color);
         }
         
         .contact-button {
-            background: #667eea;
-            color: white;
-            padding: 12px 30px;
+            background: var(--primary-color);
+            color: var(--white-color);
+            padding: 15px 35px;
             border: none;
-            border-radius: 25px;
+            border-radius: 50px;
             text-decoration: none;
             display: inline-block;
             margin-top: 20px;
+            font-weight: bold;
+            transition: all 0.3s ease;
         }
         
+        /* Footer Styles */
         footer {
             text-align: center;
-            padding: 20px;
-            color: #666;
+            padding: 30px 20px;
+            color: var(--secondary-text-color);
             font-size: 0.9rem;
+        }
+
+        /* Hover Effects */
+        nav a:hover {
+            opacity: 0.7;
+        }
+
+        .contact-button:hover {
+            background: var(--secondary-color);
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+
+        /* Responsive Design for Mobile */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+            header {
+                padding: 60px 15px;
+            }
+            main.container {
+                padding: 15px;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>首尔文化导游</h1>
-        <p>体验真正的首尔</p>
+        <h1>一位本地朋友的首尔生活小贴士</h1>
+        <p>您的友好向导，带您像本地人一样玩转韩国生活。</p>
     </header>
 
-    <div class="container">
-        <div class="nav-links">
-            <a href="/">English</a> | 
-            <a href="/cn/"><strong>中文</strong></a>
-        </div>
+    <main class="container">
+        <nav>
+            <a href="../index.html">English</a> |
+            <a href="index.html">中文</a>
+        </nav>
 
-        <div class="content-section">
-            <h2>30年首尔居住者指导的正宗韩国文化之旅</h2>
-            <p>为想要体验真正韩国文化而非典型旅游的30-50岁旅客提供的私人导游服务。</p>
-        </div>
+        <section class="content-section">
+            <h2 style="text-align: left; font-size: 1.5rem;">欢迎，我的朋友!</h2>
+            <p>我创建这个小网页，是因为我发现很多外国同事和朋友初到韩国时，都会问同样的问题。我常常希望能将我在这里生活学到的技巧和窍门分享给他们。</p>
+            <p>这不是一个普通的游客指南，而是一系列个人观察和实用建议——那种只有本地朋友才会给的“内部消息”。我希望这些小贴士能帮助您在韩国的时光变得更丰富、更愉快、也更轻松一些。</p>
+        </section>
 
-        <div class="content-section">
-            <h2>最新旅行指南</h2>
-            <ul class="guide-list">
-                <li><strong>像韩国人一样吃饭</strong> - 游客绝对不知道的餐厅礼仪和当地美食秘诀</li>
-                <li><strong>首尔地铁完全攻略</strong> - 从避开高峰时段到换乘小贴士</li>
-                <li><strong>商务出差者首尔指南</strong> - 韩国商务文化的方方面面</li>
-                <li><strong>K文化圣地朝圣</strong> - 从BTS到鱿鱼游戏的拍摄地完美指南</li>
+        <section>
+            <h2>我的独家小贴士合集</h2>
+            <ul class="tip-cards">
+                <li class="tip-card">
+                    <a href="#">
+                        <h3>🍔 如何像本地人一样用餐</h3>
+                        <p>餐厅礼仪、必试的外卖应用，以及游客不知道的用餐秘诀。</p>
+                    </a>
+                </li>
+                <li class="tip-card">
+                    <a href="blog/seoul-subway-guide.html">
+                        <h3>🚇 首尔地铁达人</h3>
+                        <p>从避开高峰时段到换乘捷径和应用使用的完整指南。</p>
+                    </a>
+                </li>
+                <li class="tip-card">
+                    <a href="#">
+                        <h3>💼 玩转职场文化</h3>
+                        <p>一份友好的指南，助您理解从“회식(聚餐)”到日常办公室礼仪的一切。</p>
+                    </a>
+                </li>
+                <li class="tip-card">
+                    <a href="#">
+                        <h3>🛍️ 智能购物与日常生活</h3>
+                        <p>在哪买什么、理解垃圾分类系统，以及其他必要的生活技巧。</p>
+                    </a>
+                </li>
             </ul>
-        </div>
-    </div>
+        </section>
+    </main>
 
-    <div class="contact-section">
-        <h2>私人导游咨询</h2>
-        <p>如需更深度的首尔体验，请预约个人定制导游服务</p>
-        <a href="mailto:guide@example.com" class="contact-button">咨询导游服务</a>
-    </div>
+    <section class="contact-section">
+        <h2>有任何问题吗？</h2>
+        <p>如果您对任何事情感到好奇，随时都可以提问！</p>
+        <a href="mailto:guide@example.com" class="contact-button">发送消息</a>
+    </section>
 
     <footer>
-        <p>&copy; 2025 Seoul Culture Guide. Powered by GitHub Pages</p>
+        <p>&copy; 2025 一位本地朋友的首尔小贴士. 版权所有.</p>
     </footer>
 </body>
 </html>
