@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seoul Culture Guide - Experience Real Seoul</title>
+    <title>Seoul Pro-Tips by a Local Friend</title>
     <style>
         :root {
-            --primary-color: #667eea;
-            --secondary-color: #764ba2;
-            --light-bg-color: #f8f9fa;
-            --text-color: #333;
-            --secondary-text-color: #666;
+            --primary-color: #5A67D8; /* A slightly softer, more modern blue */
+            --secondary-color: #9F7AEA; /* A complementary purple */
+            --light-bg-color: #F7FAFC;
+            --card-bg-color: #FFFFFF;
+            --text-color: #2D3748;
+            --secondary-text-color: #718096;
             --white-color: #fff;
+            --shadow-color: rgba(0, 0, 0, 0.1);
         }
 
         * {
@@ -21,9 +23,10 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
             color: var(--text-color);
+            background-color: var(--light-bg-color); /* Give the whole page a light background */
         }
         
         main.container {
@@ -32,127 +35,153 @@
             padding: 20px;
         }
 
-        /* Header Styles with Background Image */
+        /* Header Styles */
         header {
-            /* 멋진 서울 이미지 위에 어두운 필터를 씌워 텍스트가 잘 보이게 합니다. */
-            /* Tip: 'https://...' 부분에 원하는 서울 이미지 주소를 넣으면 바꿀 수 있어요! */
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1579803815617-16987e90959c?q=80&w=2070&auto=format&fit=crop');
+            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1547892186-24a014e69b0c?q=80&w=2070&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
-            
             color: var(--white-color);
             text-align: center;
-            padding: 80px 20px; /* 패딩을 조금 더 주어 시원한 느낌을 줍니다. */
+            padding: 80px 20px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
         }
         
         header h1 {
-            font-size: 2.8rem; /* 제목을 더 강조 */
+            font-size: 2.8rem;
+            font-weight: 700;
             margin-bottom: 10px;
         }
         
         header p {
             font-size: 1.2rem;
             opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto; /* Center the paragraph if it wraps */
         }
         
         /* Navigation Styles */
-        nav { /* div -> nav 시맨틱 태그로 변경 */
+        nav {
             text-align: center;
-            margin: 20px 0;
+            margin: 30px 0;
         }
         
         nav a {
-            margin: 0 10px;
+            margin: 0 15px;
             color: var(--primary-color);
             text-decoration: none;
-            font-weight: 500;
-            transition: opacity 0.3s ease; /* 부드러운 전환 효과 추가 */
+            font-weight: 600;
+            transition: opacity 0.3s ease;
         }
 
         /* Content Section Styles */
-        section { /* div -> section 시맨틱 태그로 변경 */
-            margin: 40px 0;
+        section {
+            margin: 50px 0;
         }
         
         section h2 {
+            text-align: center; /* Center the section titles */
+            font-size: 2rem;
             color: var(--text-color);
-            margin-bottom: 20px;
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 10px;
-        }
-        
-        .guide-list {
-            list-style: none;
-            padding-left: 0;
-        }
-        
-        .guide-list li {
-            background: var(--light-bg-color);
-            margin: 10px 0;
-            padding: 15px;
-            border-radius: 8px;
-            border-left: 4px solid var(--primary-color);
+            margin-bottom: 30px;
         }
 
-        .guide-list li a { /* 리스트 안의 링크 스타일 */
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
-            transition: color 0.3s ease;
+        /* ===== NEW: Tip Cards Section ===== */
+        .tip-cards {
+            list-style: none;
+            padding: 0;
+            display: grid; /* Use modern CSS Grid for layout */
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+            gap: 25px; /* Space between cards */
         }
         
+        .tip-card {
+            background: var(--card-bg-color);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px var(--shadow-color);
+            overflow: hidden; /* Ensures the border doesn't stick out */
+            transition: all 0.3s ease;
+            border-top: 5px solid; /* Top border for accent color */
+        }
+
+        .tip-card:hover {
+            transform: translateY(-8px); /* Card lifts up on hover */
+            box-shadow: 0 8px 25px var(--shadow-color);
+        }
+
+        /* Different accent colors for each card */
+        .tip-card:nth-child(1) { border-color: #4299E1; /* Blue */}
+        .tip-card:nth-child(2) { border-color: #48BB78; /* Green */}
+        .tip-card:nth-child(3) { border-color: #ED8936; /* Orange */}
+        .tip-card:nth-child(4) { border-color: #9F7AEA; /* Purple */}
+
+        .tip-card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            padding: 25px;
+        }
+        
+        .tip-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+        
+        .tip-card p {
+            font-size: 0.95rem;
+            color: var(--secondary-text-color);
+        }
+
         /* Contact Section Styles */
         .contact-section {
-            background: var(--light-bg-color);
-            padding: 40px 20px;
+            background: var(--card-bg-color);
+            padding: 50px 20px;
             text-align: center;
             margin-top: 60px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px var(--shadow-color);
         }
         
         .contact-button {
             background: var(--primary-color);
             color: var(--white-color);
-            padding: 12px 30px;
+            padding: 15px 35px;
             border: none;
-            border-radius: 25px;
+            border-radius: 50px;
             text-decoration: none;
             display: inline-block;
             margin-top: 20px;
             font-weight: bold;
-            transition: all 0.3s ease; /* 부드러운 전환 효과 */
+            transition: all 0.3s ease;
         }
         
         /* Footer Styles */
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 30px 20px;
             color: var(--secondary-text-color);
             font-size: 0.9rem;
         }
 
-        /* ===== HOVER EFFECTS ===== */
-        nav a:hover,
-        .guide-list li a:hover {
+        /* Hover Effects */
+        nav a:hover {
             opacity: 0.7;
-            text-decoration: underline;
         }
 
         .contact-button:hover {
             background: var(--secondary-color);
-            transform: scale(1.05); /* 버튼이 살짝 커지는 효과 */
+            transform: scale(1.05);
             cursor: pointer;
         }
 
-        /* ===== RESPONSIVE DESIGN FOR MOBILE ===== */
+        /* Responsive Design for Mobile */
         @media (max-width: 768px) {
             header h1 {
                 font-size: 2.2rem;
             }
-            
             header {
                 padding: 60px 15px;
             }
-
             main.container {
                 padding: 15px;
             }
@@ -161,8 +190,8 @@
 </head>
 <body>
     <header>
-        <h1>Seoul Culture Guide</h1>
-        <p>Experience Real Seoul</p>
+        <h1>A Local Friend's Pro-Tips for Seoul</h1>
+        <p>Your friendly guide to navigating life in Korea like a local.</p>
     </header>
 
     <main class="container">
@@ -172,30 +201,50 @@
         </nav>
 
         <section class="content-section">
-            <h2>Authentic Korean Culture Tours by a Korean Ajeossi</h2>
-            <p>The word Ajeossi (아저씨) is a Korean term that refers to a man in his 40s or 50s. While it literally translates to "mister" or "uncle," it carries a more meaningful cultural connotation. It represents a seasoned, reliable, and trustworthy man who offers a genuine and authentic perspective on daily life in Korea.</p>
-            <p>Private guide services for travelers who want to experience genuine Korean culture beyond typical tourism.</p>
+            <h2 style="text-align: left; font-size: 1.5rem;">Welcome, my friend!</h2>
+            <p>I created this small page because I've seen many of my foreign colleagues and friends ask the same questions when they first arrive in Korea. So often, I found myself wishing I could share the same tips and tricks I've learned from living here.</p>
+            <p>This isn't a typical tourist guide. It's a collection of personal observations and practical advice—the kind of "insider info" you'd get from a local friend. My hope is that these tips will help make your time in Korea richer, more enjoyable, and a little bit easier.</p>
         </section>
 
-        <section class="content-section">
-            <h2>Latest Travel Guides</h2>
-            <ul class="guide-list">
-                <li><a href="#"><strong>How to Eat Like a Korean</strong> - Restaurant etiquette and local dining secrets tourists never know</a></li>
-                <li><a href="/blog/seoul-subway-guide.html"><strong>Seoul Subway Mastery 🚇</strong> - Complete guide from avoiding rush hours to transfer shortcuts</a></li>
-                <li><a href="#"><strong>Business Traveler's Seoul Guide</strong> - Everything about Korean business culture</a></li>
-                <li><a href="#"><strong>K-Culture Pilgrimage</strong> - Complete filming location guide from BTS to Squid Game</a></li>
+        <section>
+            <h2>My Collection of Pro-Tips</h2>
+            <ul class="tip-cards">
+                <li class="tip-card">
+                    <a href="#">
+                        <h3>🍔 How to Eat Like a Local</h3>
+                        <p>Restaurant etiquette, must-try delivery apps, and dining secrets tourists never know.</p>
+                    </a>
+                </li>
+                <li class="tip-card">
+                    <a href="/blog/seoul-subway-guide.html">
+                        <h3>🚇 Seoul Subway Mastery</h3>
+                        <p>Complete guide from avoiding rush hours to secret transfer shortcuts and using the apps.</p>
+                    </a>
+                </li>
+                <li class="tip-card">
+                    <a href="#">
+                        <h3>💼 Navigating Work Culture</h3>
+                        <p>A friendly guide to understanding everything from "hoeshik" to daily office etiquette.</p>
+                    </a>
+                </li>
+                <li class="tip-card">
+                    <a href="#">
+                        <h3>🛍️ Smart Shopping & Daily Life</h3>
+                        <p>Where to buy what, understanding the recycling system, and other essential life hacks.</p>
+                    </a>
+                </li>
             </ul>
         </section>
     </main>
 
     <section class="contact-section">
-        <h2>Private Tour Inquiry</h2>
-        <p>Contact us for personalized Seoul experiences</p>
-        <a href="mailto:guide@example.com" class="contact-button">Book a Tour</a>
+        <h2>Have a Question?</h2>
+        <p>If there's something you're curious about, feel free to ask!</p>
+        <a href="mailto:guide@example.com" class="contact-button">Send a Message</a>
     </section>
 
     <footer>
-        <p>&copy; 2025 Seoul Culture Guide. Powered by GitHub Pages</p>
+        <p>&copy; 2025 A Local Friend's Pro-Tips. All rights reserved.</p>
     </footer>
 </body>
 </html>
