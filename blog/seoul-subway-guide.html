@@ -1,46 +1,235 @@
-.chart-container {
-position: relative;
-width: 100%;
-max-width: 800px;
-margin-left: auto;
-margin-right: auto;
-height: 350px;
-max-height: 500px;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seoul Subway Mastery - A Local's Guide</title>
+    <style>
+        /* index.html과 동일한 디자인을 위한 기본 스타일 */
+        :root {
+            --primary-color: #5A67D8;
+            --secondary-color: #9F7AEA;
+            --light-bg-color: #F7FAFC;
+            --card-bg-color: #FFFFFF;
+            --text-color: #2D3748;
+            --secondary-text-color: #718096;
+            --white-color: #fff;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
 
-```
-    .scroll-to-top {
-        position: fixed;
-        bottom: 2rem;
-        right: 2rem;
-        width: 3.5rem;
-        height: 3.5rem;
-        background-color: #DD6B20;
-        color: white;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        font-size: 1.25rem;
-        font-weight: bold;
-        box-shadow: 0 4px 12px rgba(221, 107, 32, 0.4);
-        transition: all 0.3s ease;
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(20px);
-        z-index: 1000;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7; /* 가독성을 위해 줄 간격을 조금 더 넓혔습니다 */
+            color: var(--text-color);
+            background-color: var(--light-bg-color);
+        }
+        
+        /* 포스팅을 담을 메인 컨테이너 */
+        .post-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--card-bg-color);
+            margin-top: 40px;
+            margin-bottom: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px var(--shadow-color);
+        }
+
+        /* 포스팅 제목 */
+        .post-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+        
+        /* 부제 */
+        .post-subtitle {
+            font-size: 1.2rem;
+            color: var(--secondary-text-color);
+            margin-bottom: 30px;
+            border-bottom: 1px solid #E2E8F0;
+            padding-bottom: 20px;
+        }
+
+        /* 본문 단락 스타일 */
+        .post-content p {
+            margin-bottom: 20px;
+        }
+
+        /* 본문 소제목 스타일 */
+        .post-content h3 {
+            font-size: 1.6rem;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 10px;
+        }
+
+        /* 본문 코드/강조 스타일 */
+        .post-content code {
+            background-color: #E2E8F0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        /* 목록 스타일 */
+        .post-content ul {
+            list-style-position: inside;
+            padding-left: 10px;
+            margin-bottom: 20px;
+        }
+        .post-content li {
+            margin-bottom: 10px;
+        }
+
+        /* ===== "목록으로 돌아가기" 버튼 스타일 ===== */
+        .back-to-home {
+            display: inline-block;
+            margin-bottom: 30px;
+            padding: 10px 20px;
+            background-color: var(--light-bg-color);
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        .back-to-home:hover {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+        }
+
+        /* ===== "맨 위로 가기" 플로팅 아이콘 스타일 ===== */
+        #scrollTopBtn {
+            display: none; /* 기본적으로 숨김 */
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 100;
+            border: none;
+            outline: none;
+            background-color: var(--primary-color);
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 50%; /* 원형 버튼 */
+            font-size: 18px;
+            width: 50px;
+            height: 50px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        #scrollTopBtn:hover {
+            background-color: var(--secondary-color);
+            transform: scale(1.1);
+        }
+
+        /* Footer 스타일 */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: var(--secondary-text-color);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <main class="post-container">
+        <a href="index.html" class="back-to-home">← Back to Pro-Tips</a>
+
+        <h1 class="post-title">Seoul Subway Mastery 🚇</h1>
+        <p class="post-subtitle">A Local's Guide for the Smart Traveler</p>
+
+        <div class="post-content">
+            <p>Welcome to Seoul! If you're here on business, you probably took a comfortable (and likely expensive) taxi from the airport to your hotel. It's the simplest way to get your bearings.</p>
+            <p>But now that you're settled, you might have a free day or a few hours to explore. And let me tell you a little secret: sometimes, taking the subway is significantly faster and more convenient than sitting in Seoul's infamous traffic. This is especially true if your hotel and your destination are both within walking distance of a subway station.</p>
+            <p>This guide is written with that assumption in mind. Let's dive into how you can navigate the city's amazing subway system like a pro.</p>
+
+            <h3>Step 1: Your Ticket to Ride - Two Ways to Pay</h3>
+            <p>First things first, you need a way to get through the ticket gates. You have two main options.</p>
+
+            <h4>1. The Quick & Simple: Single Journey Tickets</h4>
+            <p>This is a disposable ticket for one ride. You can buy it from vending machines located in every station.</p>
+            <p>Now, I'll be honest with you. As a local friend, I have to say this process can be a bit awkward. The machines are designed to be user-friendly, but in an increasingly cashless world, the fact that <strong>you often need physical cash (bills or coins) to buy these tickets is a real inconvenience.</strong> If you're like me and rarely carry cash, this can be frustrating.</p>
+            <p>But if you have cash and just need a one-time ride, here’s how to do it:</p>
+            <ol>
+                <li><strong>Find the Machine:</strong> Look for the "Single Journey Ticket" vending machine. You can select English on the home screen.</li>
+                <li><strong>Choose Your Destination:</strong> Search for your destination station.</li>
+                <li><strong>Pay for the Ticket:</strong> Insert the required fare in cash. The machine will also ask for a <code>₩500</code> deposit. Don't worry, you'll get this back!</li>
+                <li><strong>Collect Your Card:</strong> A small, yellow plastic card will be dispensed. This is your ticket.</li>
+                <li><strong>Tap In, Tap Out:</strong> Tap the card on the sensor at the ticket gate when you enter, and <strong>don't forget to tap it again when you exit</strong> at your destination.</li>
+                <li><strong>Get Your Deposit Back:</strong> After you exit, find the "Deposit Refund Machine." Insert your card, and it will return your <code>₩500</code> coin.</li>
+            </ol>
+            <p>It works, but it's a bit of a hassle, right? That's why I personally recommend the second option.</p>
+
+            <h4>2. The Pro Choice: The T-money Card (My Strong Recommendation)</h4>
+            <p>Think of the T-money card as your magic key to Seoul. It's a rechargeable smart card that makes public transport incredibly simple. You buy the card once (it costs around ₩3,000 - ₩4,000) and then load it with money as you go.</p>
+            <ul>
+                <li><strong>Where to Buy & Recharge:</strong> You can buy and add money to a T-money card at any convenience store (GS25, CU, 7-Eleven are everywhere!) or at the same machines in the subway station. Just hand your card and some cash to the convenience store clerk and say "Chungjeon-hae juseyo" (<code>충전해주세요</code> - "Please charge it"). They'll know exactly what to do.</li>
+            </ul>
+            <p><strong>The Real Magic of T-money: It's More Than a Subway Pass</strong></p>
+            <p>This is why the T-money card is so great. Its convenience extends far beyond the subway. You can use your T-money balance to pay for:</p>
+            <ul>
+                <li>All Public Buses</li>
+                <li>Taxis</li>
+                <li>Convenience Stores</li>
+                <li>Many Cafe Chains (Starbucks, Ediya, etc.)</li>
+                <li>Fast Food Restaurants (McDonald's, Lotteria, etc.)</li>
+                <li>Vending Machines & Lockers in stations</li>
+            </ul>
+            <p>You just tap and go. No need to fumble for cash or count coins. It truly simplifies the small transactions of daily life here.</p>
+
+            <h3>Beyond the Ticket: More Pro-Tips for a Smooth Ride</h3>
+            <ul>
+                <li><strong>📱 Be Your Own Navigator (Use an App!):</strong> Don't even try to navigate with the paper map. Download <strong>Naver Maps</strong> or <strong>Kakao Maps</strong>. Both have excellent English support and will give you the fastest route and which train car to board for a quick transfer.</li>
+                <li><strong>🏃‍♂️ Survive the Rush Hour:</strong> Seoul's rush hours (roughly 7:30-9:30 AM and 5:30-7:30 PM) are intense. If you can, try to avoid traveling during these times.</li>
+                <li><strong>EXIT➡️ Know Your Exit Number:</strong> Subway stations are huge. Your map app will tell you which exit number is closest to your destination. Checking this beforehand can save you a 10-minute walk.</li>
+                <li><strong>🙏 Ride Like a Local (Etiquette):</strong> Wait for people to get off before you board. The seats at the ends of each car are for the elderly, pregnant, or disabled—best to leave them empty. Keep your voice down.</li>
+            </ul>
+            <p>While a taxi has its place, embracing the subway is embracing the pulse of the city. Enjoy the ride!</p>
+        </div>
+    </main>
     
-    .scroll-to-top.show {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-    }
-    
-    .scroll-to-top:hover {
-        background-color: #C05621;
-        transform: translateY(-2px);
-        box-shadow: 0 6px 16px rgba(221, 107, 32, 0.5);
-    }
-```
+    <footer>
+        <p>&copy; 2025 A Local Friend's Pro-Tips. All rights reserved.</p>
+    </footer>
+
+    <button id="scrollTopBtn" title="Go to top">↑</button>
+
+    <script>
+        // 버튼 요소 가져오기
+        var scrollTopBtn = document.getElementById("scrollTopBtn");
+
+        // 사용자가 스크롤할 때 함수 실행
+        window.onscroll = function() {
+            scrollFunction();
+        };
+
+        function scrollFunction() {
+            // 사용자가 100px 이상 스크롤하면 버튼을 보여줌
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                scrollTopBtn.style.display = "block";
+            } else {
+                scrollTopBtn.style.display = "none";
+            }
+        }
+
+        // 버튼을 클릭하면 페이지 맨 위로 스크롤
+        scrollTopBtn.onclick = function() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        };
+    </script>
+
+</body>
+</html>
